@@ -18,15 +18,19 @@
   </header>
   <main>
     <h2>Lector en línea</h2>
-    <div id="viewer" style="width:100%; height:80vh; border:1px solid #ddd;"></div>
+    <div id="viewer" style="width:100%; height:100vh; border:1px solid #ddd;"></div>
   </main>
   <script>
-    var book = ePub("La_Voragine.epub");
+    var book = ePub("La_Voragine.epub");  // tu EPUB en la raíz
     var rendition = book.renderTo("viewer", {
       width: "100%",
-      height: "80vh"
+      height: "100vh"
     });
-    rendition.display();
+
+    // Mostrar el primer capítulo automáticamente
+    book.ready.then(() => {
+      rendition.display(book.navigation.toc[0].href);
+    });
   </script>
 </body>
 </html>
