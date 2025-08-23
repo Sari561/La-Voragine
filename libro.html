@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>La vorágine - EPUB</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>La vorágine - PDF</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,21 +23,10 @@
       <a href="glosario.html">Glosario</a>
     </nav>
   </header>
-  <main>
-    <h2>Lector en línea</h2>
-    <div id="viewer" style="width:100%; height:100vh; border:1px solid #ddd;"></div>
-  </main>
-  <script>
-    var book = ePub("La_Voragine.epub");  // tu EPUB en la raíz
-    var rendition = book.renderTo("viewer", {
-      width: "100%",
-      height: "100vh"
-    });
 
-    // Mostrar el primer capítulo automáticamente
-    book.ready.then(() => {
-      rendition.display(book.navigation.toc[0].href);
-    });
-  </script>
+  <main>
+    <h2>Lector en línea (PDF)</h2>
+    <iframe src="La_Voragine.pdf"></iframe>
+  </main>
 </body>
 </html>
